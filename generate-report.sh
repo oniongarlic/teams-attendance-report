@@ -23,4 +23,4 @@ duckdb -c "copy (select tsm,ua as Attendance,uj as 'Join', ul as 'Left' from sum
 
 M=`duckdb -column -noheader -s "select max(ua) as m from summary where tsm>='${FTS}' and tsm<='${ETS}'" attendance-database.db`
 
-gnuplot -e "fileout='summary-${OSUFFIX}.png'; filecsv='summary.csv'; set title 'Henkilöstöinfo ${FTS} max=${M}';" -p summary.gnuplot
+gnuplot -e "fileout='summary-${OSUFFIX}.png'; filecsv='summary.csv'; set title 'Summary for event ${FTS} max=${M}';" -p summary.gnuplot
