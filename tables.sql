@@ -21,4 +21,5 @@ create view summary as
    sum(l*-1) over (order by tsm rows 0 preceding) ul
   from bymin;
 
-
+create view domains as
+ select date_trunc('minute', etime at time zone 'Europe/Helsinki') as tsm,split_part(pid, '@', 2) as domain from attendance where role='Attendee' and action='Joined' order by tsm desc;
