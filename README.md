@@ -10,6 +10,8 @@ simple summary graphs of attendance. Currently generates graphs for
 * Attendance, Joins and Leaving over time
 * Attendee domains with counts
 
+As an extra you will also get csv files of the above!
+
 Requires:
 * gnuplot
 * duckdb
