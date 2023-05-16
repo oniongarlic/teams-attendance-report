@@ -18,7 +18,7 @@ set grid y
 set ytics 50
 set ylabel "Attendance" 
 
-set terminal pngcairo size 1920,1080 enhanced font "DejaVu Sans,16"
+set terminal pngcairo size 1920,1080 enhanced font "DejaVu Sans,18"
 set output fileout
 
 plot filecsv using 1:2 with lines, '' using 1:3 with lines, '' using 1:4 with lines
