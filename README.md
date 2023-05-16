@@ -13,3 +13,19 @@ simple summary graphs of attendance. Currently generates graphs for
 Requires:
 * gnuplot
 * duckdb
+
+Note: For now, events that overlap are NOT supported.
+
+## Usage:
+
+At first start a duckdb database attendance-database.db will be created using details from tables.sql
+
+Start and end timestamps must always be given and in the format YYYY-MM-DD HH:MM:SS
+First parameter is start time, second end time. Third is CSV file to import and is optional.
+
+Importing and generating a report
+    ./generate-report.sh '2023-05-11 8:45:00' '2023-05-11 10:15:00' attendee.csv
+
+Generating a report from already imported data
+    ./generate-report.sh '2023-05-11 8:45:00' '2023-05-11 10:15:00'
+
