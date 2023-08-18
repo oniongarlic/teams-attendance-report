@@ -23,3 +23,6 @@ create view summary as
 
 create view domains as
  select date_trunc('minute', etime at time zone 'Europe/Helsinki') as tsm,split_part(pid, '@', 2) as domain from attendance where role='Attendee' and action='Joined' order by tsm desc;
+
+create view duration as
+ SELECT sid, MIN(etime) AS start_time, MAX(etime) AS end_time, MAX(etime) - MIN(etime) AS duration FROM attendance where role='Attendee' GROUP BY sid order by duration;
