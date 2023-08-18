@@ -21,4 +21,4 @@ set grid y
 set terminal pngcairo size 1920,1080 enhanced font "DejaVu Sans,18"
 set output fileout
 
-plot filecsv using 4:1
+plot filecsv using 2:1

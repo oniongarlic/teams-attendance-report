@@ -48,7 +48,8 @@ echo "Summary..."
 duckdb -c "copy (select tsm,ua as Attendance,uj as 'Join', ul as 'Left' from summary where tsm>='${FTS}' and tsm<='${ETS}' order by tsm) to 'summary.csv' (HEADER, DELIMITER ',')" attendance-database.db
 
 echo "Durations..."
-duckdb -c "copy (select * from duration where start_time>='${FTS}' and end_time<='${ETS}' order by duration) to 'duration.csv' (HEADER, DELIMITER ',')" attendance-database.db
+#duckdb -c "copy (select sid,duration from duration where start_time>='${FTS}' and end_time<='${ETS}' order by duration) to 'duration.csv' (HEADER, DELIMITER ',')" attendance-database.db
+duckdb -c "copy (select row_number() OVER() as r,duration as d from duration where start_time>='${FTS}' and end_time<='${ETS}' order by duration) to 'duration.csv' (HEADER, DELIMITER ',')" attendance-database.db
 
 echo "Domains..."
 duckdb -c "copy (select case when domain='' then 'Anonymous user' else domain end as domain,count(*) as c from domains where tsm>='${FTS}' and tsm<='${ETS}' group by domain order by c desc) to 'domains.csv' (HEADER, DELIMITER ',')" attendance-database.db
