@@ -25,6 +25,11 @@ At first start a duckdb database attendance-database.db will be created using de
 Start and end timestamps must always be given and in the format YYYY-MM-DD HH:MM:SS
 First parameter is start time, second end time. Third is CSV file to import and is optional.
 
+Importing only
+```
+./generate-report.sh attendee.csv
+```
+
 Importing and generating a report
 ```
 ./generate-report.sh '2023-05-11 8:45:00' '2023-05-11 10:15:00' attendee.csv
